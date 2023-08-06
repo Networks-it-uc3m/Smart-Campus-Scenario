@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dns
+  labels:
+    app: dns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dns
+  template:
+    metadata:
+      labels:
+        app: dns
+      annotations:
+        k8s.v1.cni.cncf.io/networks: my-first-network
+    spec:
+      nodeName: raspi4
+      containers:
+      - name: dns
+        image: alpine:latest
+        command: ["/bin/ash", "-c", "trap : TERM INT; sleep infinity & wait"]
+        securityContext:
+          capabilities:
+            add: ["NET_ADMIN"]

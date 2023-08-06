@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-med
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+      annotations:
+        k8s.v1.cni.cncf.io/networks: my-nginx-network
+    spec:
+      nodeName: raspi2
+      containers:
+      - name: nginx-med
+#        command: []
+        image: nginx:latest
+        securityContext:
+          capabilities:
+            add: ["NET_ADMIN"]
+

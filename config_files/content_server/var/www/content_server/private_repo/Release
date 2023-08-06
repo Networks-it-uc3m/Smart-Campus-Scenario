@@ -1,0 +1,13 @@
+Package: hola-uc3m
+Version: 1.0
+Architecture: all
+Maintainer: UC3M NETCOM
+Depends: python3
+Filename: ./pool/hola_uc3m_1.0_arm64.deb
+Size: 952
+MD5sum: 8f1aae9f0c4d05158fcb9c8a82ed8036
+SHA1: cdb8125b1d78590a8d58d2001ec226b3f898233c
+SHA256: 5cfd6d311376dbd8daa0b74795475bec79fde08190a7f7ba2a3426790afbad47
+Section: base
+Description: Software de prueba para el repositorio de netcom uc3m
+

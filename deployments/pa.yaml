@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pa
+  labels:
+    app: pa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pa
+  template:
+    metadata:
+      labels:
+        app: pa
+      annotations:
+        k8s.v1.cni.cncf.io/networks: my-first-network
+    spec:
+      nodeName: raspi4
+      containers:
+      - name: pa
+        image: ubuntu:latest
+        command: ["/bin/sleep","3000d"]
+        securityContext:
+          capabilities:
+            add: ["NET_ADMIN"]

@@ -1,0 +1,7 @@
+Package: hola-uc3m
+Version: 1.0
+Section: base 
+Architecture: all 
+Depends: python3 
+Maintainer: UC3M NETCOM 
+Description: Software de prueba para el repositorio de netcom uc3m 
